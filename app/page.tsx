@@ -1,12 +1,12 @@
 import Link from "next/link";
 import {
   ArrowRight, Award, CalendarDays, Check, CircleCheck, Clock3, HeartHandshake,
-  MapPin, Phone, ShieldCheck, Siren, Users
+  MapPin, ShieldCheck, Siren, Users
 } from "lucide-react";
 import { physicianRoles, services, site } from "@/lib/data";
 
 const faqs = [
-  ["Is Summit Valley accepting patients?", "Yes. Summit Valley is newly opened and appointment availability varies by department and clinician. Call our scheduling team or use the dedicated appointment page."],
+  ["Is Summit Valley accepting patients?", "Yes. Summit Valley is newly opened and appointment availability varies by department and clinician. Use the dedicated appointment page to send a request."],
   ["Can I request an appointment online?", "Yes. The appointment page collects basic contact and department information only. A scheduler must confirm the date and time."],
   ["Which services are available?", "Summit Valley provides primary care, cardiology, orthopedics, neurology, pediatrics, emergency care, diagnostic imaging, and laboratory services."],
   ["Which insurance plans are accepted?", "Participation varies by plan, clinician, and service. Contact your insurer and our billing team to verify current network status before receiving care."]
@@ -24,7 +24,7 @@ export default function Home() {
           <p>Summit Valley Medical Center provides emergency, primary, specialty, imaging, and laboratory services in one coordinated Austin medical campus.</p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/appointments"><CalendarDays size={19}/>Request an Appointment</Link>
-            <a className="button button-secondary" href={site.phoneHref}><Phone size={18}/>Call {site.phone}</a>
+            <Link className="button button-secondary" href="/contact">Contact us</Link>
           </div>
           <div className="hero-note"><CircleCheck size={18}/>Emergency services available 24 hours a day, 7 days a week</div>
         </div>
@@ -80,14 +80,14 @@ export default function Home() {
 
     <section className="section">
       <div className="container location-grid">
-        <div className="location-info"><span className="eyebrow">Austin medical campus</span><h2>Summit Valley Medical Center</h2><p>Patient care, emergency services, diagnostic imaging, and laboratory services at one accessible location.</p><div className="location-detail"><MapPin/><span><strong>{site.address}</strong><span>Call for parking and entrance information</span></span></div><div className="location-detail"><Clock3/><span><strong>Hospital open</strong><span>Emergency services available 24/7</span></span></div><div className="location-detail"><Phone/><span><strong><a href={site.phoneHref}>{site.phone}</a></strong><span>Appointments and general information</span></span></div><Link href="/contact" className="button button-primary">Directions and contact</Link></div>
+        <div className="location-info"><span className="eyebrow">Austin medical campus</span><h2>Summit Valley Medical Center</h2><p>Patient care, emergency services, diagnostic imaging, and laboratory services at one accessible location.</p><div className="location-detail"><MapPin/><span><strong>{site.address}</strong><span>See the contact page for parking and entrance information</span></span></div><div className="location-detail"><Clock3/><span><strong>Hospital open</strong><span>Emergency services available 24/7</span></span></div><Link href="/contact" className="button button-primary">Directions and contact</Link></div>
         <div className="map"><iframe title="Map showing the Summit Valley Medical Center location" src="https://www.google.com/maps?q=1250+Medical+Plaza+Drive+Austin+TX+78701&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade"/></div>
       </div>
     </section>
 
     <section className="emergency"><div className="container emergency-inner"><span className="emergency-icon"><Siren/></span><div><h2>If this is a medical emergency, call 911 immediately.</h2><p>Do not use online scheduling or messaging for emergency care.</p></div><a href="tel:911" className="button">Call 911</a></div></section>
 
-    <section className="final-cta"><div className="container"><h2>Choose the right next step</h2><p>Review our services or visit the dedicated appointment page. No personal information is collected on this homepage.</p><div className="hero-actions" style={{justifyContent:"center"}}><Link href="/appointments" className="button button-secondary"><CalendarDays size={18}/>Request an appointment</Link><a href={site.phoneHref} className="button button-ghost" style={{color:"white"}}><Phone size={18}/>Call {site.phone}</a></div></div></section>
+    <section className="final-cta"><div className="container"><h2>Choose the right next step</h2><p>Review our services or visit the dedicated appointment page. No personal information is collected on this homepage.</p><div className="hero-actions" style={{justifyContent:"center"}}><Link href="/appointments" className="button button-secondary"><CalendarDays size={18}/>Request an appointment</Link><Link href="/contact" className="button button-ghost" style={{color:"white"}}>Contact us</Link></div></div></section>
 
     <section className="section section-soft" id="faq"><div className="container"><div className="section-heading center"><span className="eyebrow">Common questions</span><h2>Simple answers before your visit</h2></div><div className="faq-list">{faqs.map(([q,a])=><details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div></div></section>
 

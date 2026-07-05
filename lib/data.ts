@@ -3,8 +3,6 @@ import { Baby, Bone, Brain, FlaskConical, HeartPulse, ScanLine, Siren, Stethosco
 export const site = {
   name: "Summit Valley",
   legalName: "Summit Valley Medical Center",
-  phone: "(512) 555-0188",
-  phoneHref: "tel:+15125550188",
   email: "info@summitvalleymedical.com",
   address: "1250 Medical Plaza Drive, Austin, TX 78701",
   url: "https://www.summitvalleymedical.com",

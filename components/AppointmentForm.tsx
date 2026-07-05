@@ -7,7 +7,6 @@ export function AppointmentForm({ compact = false }: { compact?: boolean }) {
   return <form className="form-card" onSubmit={e=>{e.preventDefault();setSent(true)}}>
     <div className="form-grid">
       <div className="form-field"><label htmlFor="name">Full name</label><input id="name" name="name" autoComplete="name" required /></div>
-      <div className="form-field"><label htmlFor="phone">Phone number</label><input id="phone" name="phone" type="tel" autoComplete="tel" required /></div>
       <div className="form-field"><label htmlFor="email">Email address</label><input id="email" name="email" type="email" autoComplete="email" required /></div>
       <div className="form-field"><label htmlFor="timeframe">Preferred timeframe</label><select id="timeframe" name="timeframe" defaultValue="" required><option value="" disabled>Select a timeframe</option><option>Next available</option><option>Within two weeks</option><option>Within one month</option><option>General information only</option></select></div>
       <div className="form-field full"><label htmlFor="service">Department</label><select id="service" name="service" defaultValue="" required><option value="" disabled>Select a department</option><option>Primary Care</option><option>Cardiology</option><option>Orthopedics</option><option>Neurology</option><option>Pediatrics</option><option>Diagnostic Imaging</option><option>Laboratory Services</option><option>Not sure yet</option></select></div>

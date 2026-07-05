@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Clock3, Mail, MapPin, Phone } from "lucide-react";
+import { Clock3, Mail, MapPin } from "lucide-react";
 import { Logo } from "./Logo";
 import { site } from "@/lib/data";
 
@@ -12,7 +12,6 @@ export function Footer() {
             <Logo />
             <p>A new Austin hospital providing coordinated, evidence-based, human care.</p>
             <p><MapPin size={17} />{site.address}</p>
-            <p><Phone size={17} /><a href={site.phoneHref}>{site.phone}</a></p>
             <p><Mail size={17} /><a href={`mailto:${site.email}`}>{site.email}</a></p>
             <p><Clock3 size={17} />{site.hours}</p>
           </div>

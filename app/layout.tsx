@@ -18,9 +18,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   const schema = {
     "@context": "https://schema.org", "@type": ["MedicalOrganization", "Hospital", "LocalBusiness"], name: site.legalName, url: site.url,
     description: "A newly opened hospital providing medical services in Austin, Texas.",
-    telephone: site.phone, email: site.email,
+    email: site.email,
     address: { "@type": "PostalAddress", streetAddress: "1250 Medical Plaza Drive", addressLocality: "Austin", addressRegion: "TX", postalCode: "78701", addressCountry: "US" },
-    contactPoint: { "@type": "ContactPoint", telephone: site.phone, contactType: "general information", email: site.email, availableLanguage: "English" },
+    contactPoint: { "@type": "ContactPoint", contactType: "general information", email: site.email, availableLanguage: "English" },
   };
   return <html lang="en"><body>
     <Header />

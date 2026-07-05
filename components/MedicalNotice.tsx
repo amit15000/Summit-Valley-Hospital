@@ -1,5 +1,4 @@
 import { Info, Siren } from "lucide-react";
-import { site } from "@/lib/data";
 
 export function MedicalNotice({ emergency = false }: { emergency?: boolean }) {
   return emergency ? (
@@ -13,7 +12,7 @@ export function MedicalNotice({ emergency = false }: { emergency?: boolean }) {
   ) : (
     <aside className="medical-notice">
       <Info size={20} />
-      <p>Information on this website is educational and is not medical advice. Individual outcomes vary. Consult a qualified healthcare professional for diagnosis and treatment recommendations. Questions? Call <a href={site.phoneHref}>{site.phone}</a>.</p>
+      <p>Information on this website is educational and is not medical advice. Individual outcomes vary. Consult a qualified healthcare professional for diagnosis and treatment recommendations.</p>
     </aside>
   );
 }

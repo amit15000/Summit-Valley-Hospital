@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { CalendarDays, Clock3, MapPin, Menu, Phone, X } from "lucide-react";
+import { CalendarDays, Clock3, MapPin, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Logo } from "./Logo";
 import { site } from "@/lib/data";
@@ -28,7 +28,6 @@ export function Header() {
             ))}
           </nav>
           <div className="header-actions">
-            <a className="phone-link" href={site.phoneHref}><Phone size={18} /><span>{site.phone}</span></a>
             <Link className="button button-primary header-cta" href="/appointments"><CalendarDays size={18} />Appointments</Link>
             <button className="icon-button menu-button" onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}>
               {open ? <X /> : <Menu />}
@@ -39,7 +38,6 @@ export function Header() {
           {nav.map(([label, href]) => <Link onClick={() => setOpen(false)} key={href} href={href}>{label}</Link>)}
           <Link onClick={() => setOpen(false)} href="/insurance">Insurance</Link>
           <Link onClick={() => setOpen(false)} href="/faq">FAQ</Link>
-          <a href={site.phoneHref}>Call {site.phone}</a>
         </nav>}
       </header>
     </>
