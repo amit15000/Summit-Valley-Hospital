@@ -12,6 +12,27 @@ const faqs = [
   ["Which insurance plans are accepted?", "Participation varies by plan, clinician, and service. Contact your insurer and our billing team to verify current network status before receiving care."]
 ];
 
+const heroMetrics = [
+  { value: "24/7", label: "Emergency care" },
+  { value: "8+", label: "Core specialties" },
+  { value: "1", label: "Coordinated campus" },
+];
+
+const highlights = [
+  {
+    title: "Coordinated care",
+    text: "Patients move through one connected experience, from first contact to follow-up, with clearer communication at each step.",
+  },
+  {
+    title: "Trusted clinical teams",
+    text: "Our care model emphasizes evidence-based treatment, clear explanations, and thoughtful support for every visit.",
+  },
+  {
+    title: "Modern patient experience",
+    text: "A calm, welcoming environment and streamlined digital workflow make it easier to access the care patients need.",
+  },
+];
+
 export default function Home() {
   const faqSchema = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":faqs.map(([q,a])=>({"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}}))};
   return <>
@@ -19,26 +40,58 @@ export default function Home() {
       <div className="hero-image" role="img" aria-label="Summit Valley physician and care team in a bright modern hospital" />
       <div className="container hero-content">
         <div className="hero-copy">
-          <span className="eyebrow"><HeartHandshake size={17} />A new hospital now serving Austin</span>
-          <h1 id="hero-title">Modern medicine. <span>Genuinely human care.</span></h1>
-          <p>Summit Valley Medical Center provides emergency, primary, specialty, imaging, and laboratory services in one coordinated Austin medical campus.</p>
+          <span className="eyebrow"><HeartHandshake size={17} />A modern hospital now serving Austin</span>
+          <h1 id="hero-title">Exceptional care, delivered with clarity and compassion.</h1>
+          <p>Summit Valley Medical Center brings emergency medicine, primary care, specialty services, diagnostics, and coordinated follow-up together in one welcoming campus.</p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/appointments"><CalendarDays size={19}/>Request an Appointment</Link>
-            <Link className="button button-secondary" href="/contact">Contact us</Link>
+            <Link className="button button-secondary" href="/contact">Meet our care model</Link>
           </div>
-          <div className="hero-note"><CircleCheck size={18}/>Emergency services available 24 hours a day, 7 days a week</div>
+          <div className="hero-stats">
+            {heroMetrics.map(({ value, label }) => (
+              <div className="hero-stat" key={label}>
+                <strong>{value}</strong>
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="hero-panel" aria-label="Hospital highlights">
+          <div className="hero-panel-card">
+            <p className="hero-panel-eyebrow">Why patients choose us</p>
+            <h2>Trusted care built for modern expectations.</h2>
+            <ul className="hero-panel-list">
+              <li><CircleCheck size={18}/>One connected experience from arrival to follow-up</li>
+              <li><CircleCheck size={18}/>Clear communication and clinically guided treatment plans</li>
+              <li><CircleCheck size={18}/>A calm environment designed around comfort and confidence</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
     <div className="trust-strip">
       <div className="container trust-card">
-        <div className="trust-item"><span className="trust-icon"><Award/></span><span><strong>Newly opened</strong><span>Serving the Austin community</span></span></div>
-        <div className="trust-item"><span className="trust-icon"><Users/></span><span><strong>Qualified teams</strong><span>Credentialed medical professionals</span></span></div>
-        <div className="trust-item"><span className="trust-icon"><ShieldCheck/></span><span><strong>Safety first</strong><span>Evidence-based clinical standards</span></span></div>
-        <div className="trust-item"><span className="trust-icon"><HeartHandshake/></span><span><strong>24/7 emergency</strong><span>Emergency department always open</span></span></div>
+        <div className="trust-item"><span className="trust-icon"><Award/></span><span><strong>High standards</strong><span>Evidence-based clinical care from day one</span></span></div>
+        <div className="trust-item"><span className="trust-icon"><Users/></span><span><strong>Experienced teams</strong><span>Credentialed professionals across core specialties</span></span></div>
+        <div className="trust-item"><span className="trust-icon"><ShieldCheck/></span><span><strong>Safety first</strong><span>Care pathways built around patient protection</span></span></div>
+        <div className="trust-item"><span className="trust-icon"><HeartHandshake/></span><span><strong>24/7 emergency</strong><span>Immediate response for urgent needs</span></span></div>
       </div>
     </div>
+
+    <section className="section" id="experience">
+      <div className="container">
+        <div className="section-heading center"><span className="eyebrow">Why Summit Valley stands out</span><h2>A hospital experience designed around trust</h2><p>We believe the best care feels clear, coordinated, and reassuring from the very first interaction.</p></div>
+        <div className="feature-grid">
+          {highlights.map((item) => (
+            <article className="feature-card" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
 
     <section className="section" id="care">
       <div className="container">
